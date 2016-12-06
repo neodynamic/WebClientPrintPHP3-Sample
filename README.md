@@ -8,5 +8,7 @@ Learn more about [**WebClientPrint 3.0 for PHP**](http://neodynamic.com/products
 ## The WebClientPrintPHP3-Sample Repository
 This PHP project is a sample to getting you started with WebClientPrint 3.0 for PHP Solution
 
+Website projects for **Classic PHP** as well as for **Laravel 5** are provided
+
 ## Know How WebClientPrint 3.0 for PHP Works
 Refer to the [Online Help Documentation](http://neodynamic.com/Products/Help/WebClientPrintPHP3.0/index.html)
