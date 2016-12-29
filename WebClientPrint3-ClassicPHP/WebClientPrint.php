@@ -20,7 +20,7 @@ WebClientPrint::$licenseKey = '';
  */
 class WebClientPrint {
    
-    const VERSION = '3.0.2016.0';
+    const VERSION = '3.0.2016.1227';
     const CLIENT_PRINT_JOB = 'clientPrint';
     const WCP = 'WEB_CLIENT_PRINT';
     const WCP_SCRIPT_AXD_GET_PRINTERS = 'getPrinters';
@@ -725,7 +725,12 @@ class Utils{
     }
     
     public static function intToArray($i){
-        return pack("L", $i);
+        return pack('C4',
+            ($i >>  0) & 0xFF,
+            ($i >>  8) & 0xFF,
+            ($i >> 16) & 0xFF,
+            ($i >> 24) & 0xFF
+         );
     }
         
     public static function strleft($s1, $s2) {
@@ -895,7 +900,7 @@ class ClientPrintJobGroup{
         if (isset ($this->clientPrintJobGroup)){
             $groups = count($this->clientPrintJobGroup);
             
-            $dataPartIndexes = Utils::intToArray(strlen($groups));
+            $dataPartIndexes = Utils::intToArray($groups);
             
             $cpjgHeader = chr(99).chr(112).chr(106).chr(103).chr(2);
         
@@ -948,10 +953,10 @@ class ClientPrintJobGroup{
                 }    
 
                 $cpjBuffer .= $cpj->clientPrinter->serialize();
-
-                $cpjBytesCount += strlen($cpjBuffer);
                     
-                $dataPartIndexes .= Utils::intToArray(strlen($cpjBytesCount));
+                $cpjBytesCount += strlen($arrIdx1.$cpjBuffer);
+ 
+                $dataPartIndexes .= Utils::intToArray($cpjBytesCount);
  
                 $buffer .= $arrIdx1.$cpjBuffer;
             }
