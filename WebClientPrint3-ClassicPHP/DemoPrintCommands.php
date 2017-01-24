@@ -103,7 +103,9 @@
 
 
                     <script type="text/javascript">
-                        var wcppGetPrintersDelay_ms = 5000; //5 sec
+                        //var wcppGetPrintersDelay_ms = 5000; //5 sec
+                        var wcppGetPrintersTimeout_ms = 10000; //10 sec
+                        var wcppGetPrintersTimeoutStep_ms = 500; //0.5 sec
 
                         function wcpGetPrintersOnSuccess() {
                             // Display client installed printers

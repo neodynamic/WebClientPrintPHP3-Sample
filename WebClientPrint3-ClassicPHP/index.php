@@ -59,7 +59,10 @@
 
 <script type="text/javascript">
     
-        var wcppPingDelay_ms = 5000; 
+        //var wcppPingDelay_ms = 5000; 
+        
+        var wcppPingTimeout_ms = 10000; //10 sec
+        var wcppPingTimeoutStep_ms = 500; //0.5 sec
 
         function wcppDetectOnSuccess(){
             var wcppVer = arguments[0];
