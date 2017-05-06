@@ -23,7 +23,7 @@ WebClientPrint::$wcpCacheFolder = 'wcpcache/';
  */
 class WebClientPrint {
    
-    const VERSION = '3.0.2017.123';
+    const VERSION = '3.0.2017.505';
     const CLIENT_PRINT_JOB = 'clientPrint';
     const WCP = 'WEB_CLIENT_PRINT';
     const WCP_SCRIPT_AXD_GET_PRINTERS = 'getPrinters';
@@ -688,7 +688,7 @@ class Utils{
                            (($s[$i + 3] >= '0' && $s[$i + 3] <= '9') || ($s[$i + 3] >= 'a' && $s[$i + 3] <= 'f') || ($s[$i + 3] >= 'A' && $s[$i + 3] <= 'F')))
                         {
                             try{
-                                $buffer .= chr(substr($s, $i, 4));
+                                $buffer .= chr(intval(substr($s, $i, 4),16));
                                 $i += 4;
                                 continue;
                                 
@@ -702,7 +702,7 @@ class Utils{
                         {
                             try{
                                 
-                                $buffer .= chr(substr($s, $i, 3));
+                                $buffer .= chr(intval(substr($s, $i, 3),16));
                                 $i += 3;
                                 continue;
                                 
