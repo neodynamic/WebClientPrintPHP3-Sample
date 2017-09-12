@@ -23,7 +23,7 @@ WebClientPrint::$wcpCacheFolder = 'wcpcache/';
  */
 class WebClientPrint {
    
-    const VERSION = '3.0.2017.505';
+    const VERSION = '3.0.2017.912';
     const CLIENT_PRINT_JOB = 'clientPrint';
     const WCP = 'WEB_CLIENT_PRINT';
     const WCP_SCRIPT_AXD_GET_PRINTERS = 'getPrinters';
@@ -502,7 +502,7 @@ class SerialPortPrinter extends ClientPrinter{
              throw new Exception("The specified serial port name is null or empty.");
         }
         
-        return $this->printerId.$this->portName.Utils::SER_SEP.$this->baudRate.Utils::SER_SEP.$this->dataBits.Utils::SER_SEP.$this->flowControl.Utils::SER_SEP.$this->parity.Utils::SER_SEP.$this->stopBits;
+        return $this->printerId.$this->portName.Utils::SER_SEP.$this->baudRate.Utils::SER_SEP.$this->dataBits.Utils::SER_SEP.((int)$this->flowControl).Utils::SER_SEP.((int)$this->parity).Utils::SER_SEP.((int)$this->stopBits);
     }
 }
 
